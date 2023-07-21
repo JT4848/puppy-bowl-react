@@ -2,7 +2,7 @@
 
 
 
-const FetchPuppies = ({ handleClick, puppyList, setPuppyList }) => {
+const DetailsAndDelete = ({ handleClick, puppyList, setPuppyList }) => {
 
   
   const cohortName = "2306-FSA-ET-WEB-FT-SF";
@@ -14,7 +14,7 @@ const FetchPuppies = ({ handleClick, puppyList, setPuppyList }) => {
       const response = await fetch(`${API_URL}/players/${id}`,{
         method: "DELETE",
       })
-      const result = response.json();
+      const result = await response.json();
       if(result.success){
         setPuppyList((prevPuppies) => prevPuppies.filter((puppy) => puppy.id !== id))
       }
@@ -45,4 +45,4 @@ const FetchPuppies = ({ handleClick, puppyList, setPuppyList }) => {
 
 
 
-export default FetchPuppies;
+export default DetailsAndDelete;

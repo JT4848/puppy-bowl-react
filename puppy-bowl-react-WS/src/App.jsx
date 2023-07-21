@@ -1,9 +1,9 @@
 
 import { useState, useEffect } from 'react'
 import './App.css'
-import FetchPuppies from './components/FetchPuppies'
 import SinglePuppyDetails from './components/SinglePuppyDetails';
 import NewPuppyForm from './components/NewPuppyForm';
+import DetailsAndDelete from './components/DetailsAndDelete';
 
 const App = () => {
   const [puppyList, setPuppyList] = useState([]);
@@ -57,6 +57,8 @@ const handleFormSubmit = async (newPuppy) => {
     console.error(`Error while submitting form :/`, err)
   }
 
+
+
 }
   return (
     <>
@@ -65,7 +67,7 @@ const handleFormSubmit = async (newPuppy) => {
       singlePuppy ? (
         <SinglePuppyDetails singlePuppy={singlePuppy}/>
       ) : (
-        <FetchPuppies handleClick={handleClick} puppyList={puppyList} setPuppyList={setPuppyList}/>
+        <DetailsAndDelete handleClick={handleClick} puppyList={puppyList} setPuppyList={setPuppyList}/>
       )
     }
     </>
