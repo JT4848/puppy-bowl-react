@@ -1,32 +1,23 @@
-import { useEffect, useState } from 'react'
 
 
 
-const FetchPuppies = () => {
-  const [puppyList, setPuppyList] = useState([]);
 
-  const cohortName = "2306-FSA-ET-WEB-FT-SF";
-  const API_URL = `https://fsa-puppy-bowl.herokuapp.com/api/${cohortName}`;
-
-  useEffect(() => {
-    const fetchPuppies = async () => {
-      const response = await fetch(`${API_URL}/players`);
-      const puppyData = await response.json();
-      setPuppyList(puppyData.data.players)
-    }
-    fetchPuppies();
-  })
+const FetchPuppies = ({ handleClick, puppyList }) => {
 
   return(
     <>
       <h1>Puppy Bowl</h1>
-      <ul>
-        {
-          puppyList.map((puppies) => {
-            return <li key={puppies.id}>{puppies.name}</li>
-          })
-        }
-      </ul>
+          {
+          puppyList.map((puppy) => (
+            <section key={puppy.id}>
+              <h2>Name: {puppy.name}</h2>
+              <h2>Breed: {puppy.breed}</h2>
+              <img src={puppy.imageUrl} alt={puppy.name} />
+              <h2>Id: {puppy.id}</h2>
+              <button onClick={() => handleClick(puppy)}>Details</button>
+              <button>Delete</button>
+            </section>
+          ))}
     </>
   )
 }
