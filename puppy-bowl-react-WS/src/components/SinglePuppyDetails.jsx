@@ -4,7 +4,7 @@
 
 
 
-const SinglePuppyDetails = ({ singlePuppy }) => {
+const SinglePuppyDetails = ({ singlePuppy, backToPuppies }) => {
   return(
     <>
       {
@@ -14,6 +14,7 @@ const SinglePuppyDetails = ({ singlePuppy }) => {
           <h1>Breed: {singlePuppy.breed}</h1>
           <img src={singlePuppy.imageUrl}/>
           <h1>Id: {singlePuppy.id}</h1>
+          <button onClick={backToPuppies}>Back to puppies</button>
         </section>
       }
     </>

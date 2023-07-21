@@ -28,13 +28,13 @@ const handleFormSubmit = (e) => {
     <>
       <form onSubmit={handleFormSubmit}>
         <label>
-          Name: <input type='text' id='name' name='name' defaultValue={name} onChange={(e) => setName(e.target.value)} required/>
+          Name: <input type='text' id='name' name='name' value={name} onChange={(e) => setName(e.target.value)} required/>
         </label>
         <label>
-          Breed: <input type='text' id='breed' name='breed' defaultValue={breed} onChange={(e) => setBreed(e.target.value)} required/>
+          Breed: <input type='text' id='breed' name='breed' value={breed} onChange={(e) => setBreed(e.target.value)} required/>
         </label>
         <label>
-          Image: <input type='text' id='image' name='image' defaultValue={imageUrl} onChange={(e) => setImageUrl(e.target.value)}/>
+          Image: <input type='text' id='image' name='image' value={imageUrl} onChange={(e) => setImageUrl(e.target.value)}/>
         </label>
         <button>Submit</button>
       </form>

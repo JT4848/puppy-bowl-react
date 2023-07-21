@@ -49,6 +49,7 @@ const handleFormSubmit = async (newPuppy) => {
     if(result.success){
       setPuppyList([...puppyList, result.data.newPlayer])
       setCreatedPuppy({ name: '', breed: '', imageUrl: '' })
+      setSinglePuppy(null)
     }
     else{
       console.error(`Could not create new puppy :/`)
@@ -56,16 +57,17 @@ const handleFormSubmit = async (newPuppy) => {
   }catch(err){
     console.error(`Error while submitting form :/`, err)
   }
+}
 
-
-
+const handleBackToPuppies = () => {
+  setSinglePuppy(null);
 }
   return (
     <>
     <NewPuppyForm onFormSubmit={handleFormSubmit}/>
     {
       singlePuppy ? (
-        <SinglePuppyDetails singlePuppy={singlePuppy}/>
+        <SinglePuppyDetails singlePuppy={singlePuppy} backToPuppies={handleBackToPuppies}/>
       ) : (
         <DetailsAndDelete handleClick={handleClick} puppyList={puppyList} setPuppyList={setPuppyList}/>
       )
